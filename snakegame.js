@@ -113,13 +113,22 @@ function loop(){
 
     ctx.clearRect(0,0,canvas.width, canvas.height);
     ctx.beginPath();
-    ctx.rect(0,0,canvas.width, canvas.height);
+    ctx.rect(0,0,width, height);
     ctx.fillStyle = "#a0a0a0";
     ctx.fill();
     ctx.closePath();
     draw_snake();
     draw_food();
     returnedInput = "";
+
+    ctx.beginPath();
+    ctx.rect(0, height, width, height + 20);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    ctx.closePath();
+    ctx.font = "15pt calibri";
+    ctx.fillStyle = "black";
+    ctx.fillText(snake.cells.length, 10, 375);
 }
     //BUG if user input is too fast, snake can go back on itself and kill itself.
     document.addEventListener("keydown", key_handler, false);
